@@ -1,4 +1,4 @@
-<ul class="site-nav list--inline {{ nav_alignment }}" id="SiteNav">
+<ul class="site-nav list--inline {{ nav_alignment }}" style="margin-right: 1em;" id="SiteNav">
   {% for link in linklist.links %}
     {% comment %}
       Check if third-level nav exists on each parent link.
@@ -57,15 +57,33 @@
         </div>
       </li>
     {% else %}
-      {% if forloop.last == true %}
-        <li {% if link.active %}class="site-nav--active"{% endif %}>
-          <a href="{{ link.url }}" class="site-nav__link site-nav__link--main" style="margin-right:1em;">{{ link.title }}</a>
-        </li>
-      {% else %}
-        <li {% if link.active %}class="site-nav--active"{% endif %}>
-          <a href="{{ link.url }}" class="site-nav__link site-nav__link--main" style="margin-right:1em;">{{ link.title }}</a>
-        </li>
-      {% endif %}
+      <li {% if link.active %}class="site-nav--active"{% endif %}>
+        <a href="{{ link.url }}" class="site-nav__link site-nav__link--main">{{ link.title }}</a>
+      </li>
     {% endif %}
   {% endfor %}
+
+  {% if section.settings.facebook_link != blank %}
+    <li>
+      <a href="{{ section.settings.facebook_link }}" target="_blank">
+        {% include 'icon-facebook' %}
+      </a>
+    </li>
+  {% endif %}
+
+  {% if section.settings.instagram_handle != blank %}
+    <li>
+      <a href="https://instagram.com/{{ section.settings.instagram_handle }}" target="_blank">
+        {% include 'icon-instagram' %}
+      </a>
+    </li>
+  {% endif %}
+
+  {% if section.settings.twitter_handle != blank %}
+    <li>
+      <a href="https://twitter.com/{{ section.settings.twitter_handle }}" target="_blank">
+        {% include 'icon-twitter' %}
+      </a>
+    </li>
+  {% endif %}
 </ul>

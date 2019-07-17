@@ -209,18 +209,19 @@
         {% endif %}
       </div>
       {% if section.settings.align_logo == 'left' %}
-        <nav class="grid__item medium-up--two-thirds small--hide" id="AccessibleNav" role="navigation">
+        <nav class="grid__item medium-up--three-fourths small--hide" id="AccessibleNav" role="navigation">
           {% include 'site-nav' %}
         </nav>
       {% endif %}
 
       <div class="grid__item small--one-half {% if section.settings.align_logo == 'left' %}medium-up--one-twelfth{% else %}medium-up--one-third{% endif %} text-right site-header__icons{% if shop.customer_accounts_enabled %} site-header__icons--plus{% endif %}">
+        <div class="site-header__icons-wrapper">
           {% if section.settings.align_logo == 'left' and section.settings.show_search == true %}
             <div class="site-header__search small--hide">
               {% include 'search-form' %}
             </div>
           {% endif %}
-		      {% if section.settings.show_search == true %}
+          {% if section.settings.show_search == true %}
             <button type="button" class="btn--link site-header__search-toggle js-drawer-open-top medium-up--hide">
               {% include 'icon-search' %}
               <span class="icon__fallback-text">{{ 'layout.navigation.search' | t }}</span>
@@ -260,6 +261,7 @@
               <span class="icon__fallback-text">{{ 'layout.navigation.toggle' | t }}</span>
             </button>
           {% endunless %}
+        </div>
       </div>
     </div>
   </header>
@@ -295,6 +297,21 @@
         "id": "logo_max_width",
         "label": "Custom logo width (in pixels)",
         "default": "100"
+      },
+      {
+        "type": "text",
+        "id": "facebook_link",
+        "label": "Facebook page link (copy and paste)"
+      },
+      {
+        "type": "text",
+        "id": "instagram_handle",
+        "label": "Instagram handle (no @)"
+      },
+      {
+        "type": "text",
+        "id": "twitter_handle",
+        "label": "Twitter handle (no @)"
       },
       {
         "type": "link_list",
