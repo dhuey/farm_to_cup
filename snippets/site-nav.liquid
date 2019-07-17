@@ -57,9 +57,15 @@
         </div>
       </li>
     {% else %}
-      <li {% if link.active %}class="site-nav--active"{% endif %}>
-        <a href="{{ link.url }}" class="site-nav__link site-nav__link--main">{{ link.title }}</a>
-      </li>
+      {% if forloop.last == true %}
+        <li {% if link.active %}class="site-nav--active"{% endif %}>
+          <a href="{{ link.url }}" class="site-nav__link site-nav__link--main" style="margin-right:1em;">{{ link.title }}</a>
+        </li>
+      {% else %}
+        <li {% if link.active %}class="site-nav--active"{% endif %}>
+          <a href="{{ link.url }}" class="site-nav__link site-nav__link--main" style="margin-right:1em;">{{ link.title }}</a>
+        </li>
+      {% endif %}
     {% endif %}
   {% endfor %}
 </ul>

@@ -27,7 +27,7 @@
 {% else %}
   {% assign linklist = linklists[section.settings.main_linklist] %}
 {% endif %}
-  
+
 <div data-section-id="{{ section.id }}" data-section-type="header-section">
   <nav class="mobile-nav-wrapper medium-up--hide" role="navigation">
     <ul id="MobileNav" class="mobile-nav">
@@ -209,7 +209,7 @@
         {% endif %}
       </div>
       {% if section.settings.align_logo == 'left' %}
-        <nav class="grid__item medium-up--one-half small--hide" id="AccessibleNav" role="navigation">
+        <nav class="grid__item medium-up--two-thirds small--hide nav-margin" id="AccessibleNav" role="navigation">
           {% include 'site-nav' %}
         </nav>
       {% endif %}
