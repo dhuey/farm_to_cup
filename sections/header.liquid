@@ -22,7 +22,7 @@
   </style>
 {% endif %}
 
-{% if page_title == "Farm to Cup Sundays" %}
+{% if handle == "sundays" or handle == "about-sundays" %}
   {% assign linklist = linklists[section.settings.sunday_linklist] %}
 {% else %}
   {% assign linklist = linklists[section.settings.main_linklist] %}

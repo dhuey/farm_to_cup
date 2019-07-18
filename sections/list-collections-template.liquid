@@ -1,10 +1,21 @@
+{% case section.settings.grid %}
+  {% when '2' %}
+    {%- assign max_height = 530 -%}
+  {% when '3' %}
+    {%- assign max_height = 345 -%}
+  {% when '4' %}
+    {%- assign max_height = 250 -%}
+  {% when '5' %}
+    {%- assign max_height = 195 -%}
+{% endcase %}
+
 <div class="page-width">
   <header class="section-header text-center">
-    <h1>{{ page_title }}</h1>
+    <h1>Shop all</h1>
   </header>
-  
+
   {%- assign blocks = section.blocks | sort: 'collection.all_products_count' -%}
-  
+
   {% case section.settings.grid %}
     {% when '2' %}
       {%- assign grid_item_width = 'medium-up--one-half' -%}
@@ -19,8 +30,8 @@
       {%- assign grid_item_width = 'small--one-half medium-up--one-fifth' -%}
       {%- assign image_size = '225x' -%}
   {% endcase %}
-  
-  <div class="grid grid--uniform">
+
+
     {% if section.settings.display_type == 'all' %}
       {% case section.settings.sort %}
         {% when 'products_high' or 'products_low' %}
@@ -30,23 +41,35 @@
       {% endcase %}
       {% if section.settings.sort == 'products_low' or section.settings.sort == 'date' or section.settings.sort == 'alphabetical' %}
         {% for collection in collections %}
-          <div class="grid__item {{ grid_item_width }}">
-            {% include 'collection-grid-item', collection_image_size: image_size %}
-          </div>
+          <!--<div class="grid grid--uniform">
+            <div class="grid__item {{ grid_item_width }}">-->
+              {% unless collection.products == blank %}
+              {% include 'collection-grid-item', collection_image_size: image_size %}
+              {% endunless %}
+            <!--</div>
+          </div>-->
         {% endfor %}
       {% else %}
         {% for collection in collections reversed %}
-          <div class="grid__item {{ grid_item_width }}">
-            {% include 'collection-grid-item', collection_image_size: image_size %}
-          </div>
+          <!--<div class="grid grid--uniform">
+            <div class="grid__item {{ grid_item_width }}">-->
+              {% unless collection.products == blank %}
+              {% include 'collection-grid-item', collection_image_size: image_size %}
+              {% endunless %}
+            <!--</div>
+          </div>-->
         {% endfor %}
       {% endif %}
     {% else %}
       {% for block in section.blocks %}
-        <div class="grid__item {{ grid_item_width }}">
-          {%- assign collection = collections[block.settings.collection] -%}
-          {% include 'collection-grid-item', collection_image_size: image_size %}
-        </div>
+        <!--<div class="grid grid--uniform">
+          <div class="grid__item {{ grid_item_width }}">-->
+            {%- assign collection = collections[block.settings.collection] -%}
+            {% unless collection.products == blank %}
+              {% include 'collection-grid-item', collection_image_size: image_size %}
+            {% endunless %}
+          <!--</div>
+        </div>-->
       {% endfor %}
     {% endif %}
   </div>

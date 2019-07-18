@@ -6,8 +6,9 @@
   {% assign collection_image = blank %}
 {% endif %}
 
-<div class="collection-grid-item">
-  <a href="{% if collection.products == empty %}#{% else %}{{ collection.url }}{% endif %}" class="collection-grid-item__link">
+<div style="margin-bottom: 1.5em;">
+  <h2>{{ collection.title }}</h2>
+  <!--<a href="{% if collection.products == empty %}#{% else %}{{ collection.url }}{% endif %}" class="collection-grid-item__link">
     {% unless collection_image == blank %}
       <div class="collection-grid-item__overlay box ratio-container lazyload js"
          data-bgset="{% include 'bgset', image: collection_image %}"
@@ -37,5 +38,56 @@
         {% endif %}
       </h3>
     </div>
-  </a>
+  </a>-->
+  <div class="page-width" id="Collection">
+    {% case section.settings.grid %}
+    {% when '2' %}
+      {%- assign grid_item_width = 'medium-up--one-half' -%}
+    {% when '3' %}
+      {%- assign grid_item_width = 'small--one-half medium-up--one-third' -%}
+    {% when '4' %}
+      {%- assign grid_item_width = 'small--one-half medium-up--one-quarter' -%}
+    {% when '5' %}
+      {%- assign grid_item_width = 'small--one-half medium-up--one-fifth' -%}
+    {% endcase %}
+
+    <div class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
+      {% for product in collection.products %}
+        <div class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
+          {% include 'product-card-grid', max_height: max_height %}
+        </div>
+      {% else %}
+        {% comment %}
+        Add default products to help with onboarding for collections/all only.
+
+        The onboarding styles and products are only loaded if the
+        store has no products.
+        {% endcomment %}
+        {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0 %}
+          <div class="grid__item">
+            <div class="grid grid--uniform">
+              {% for i in (1..limit) %}
+                <div class="grid__item {{ grid_item_width }}">
+                  <div class="grid-view-item">
+                    <a href="#" class="grid-view-item__link">
+                      <div class="grid-view-item__image">
+                        {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+                        {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+                      </div>
+                      <div class="h4 grid-view-item__title">{{ 'homepage.onboarding.product_title' | t }}</div>
+                      <div class="grid-view-item__meta">
+                        <span class="product-price__price">$19.99</span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        {% else %}
+          {%- assign is_empty_collection = true -%}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
 </div>
