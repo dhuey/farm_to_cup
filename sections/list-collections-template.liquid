@@ -41,7 +41,7 @@
       {% if section.settings.sort == 'products_low' or section.settings.sort == 'date' or section.settings.sort == 'alphabetical' %}
         {% for collection in collections %}
           {% unless collection.products == blank %}
-          <div style="margin-bottom:2em;">
+          <div class="collection-block">
             {% include 'collection-grid-item', collection_image_size: image_size %}
           </div>
           {% endunless %}
@@ -49,7 +49,7 @@
       {% else %}
         {% for collection in collections reversed %}
           {% unless collection.products == blank %}
-          <div style="margin-bottom:2em;">
+          <div class="collection-block">
             {% include 'collection-grid-item', collection_image_size: image_size %}
           </div>
           {% endunless %}
@@ -59,7 +59,7 @@
       {% for block in section.blocks %}
         {%- assign collection = collections[block.settings.collection] -%}
         {% unless collection.products == blank %}
-          <div style="margin-bottom: 4em;">
+          <div class="collection-block">
             {% include 'collection-grid-item', collection_image_size: image_size %}
           </div>
         {% endunless %}
