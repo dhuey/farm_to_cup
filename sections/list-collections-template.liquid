@@ -31,7 +31,6 @@
       {%- assign image_size = '225x' -%}
   {% endcase %}
 
-
     {% if section.settings.display_type == 'all' %}
       {% case section.settings.sort %}
         {% when 'products_high' or 'products_low' %}
@@ -41,35 +40,29 @@
       {% endcase %}
       {% if section.settings.sort == 'products_low' or section.settings.sort == 'date' or section.settings.sort == 'alphabetical' %}
         {% for collection in collections %}
-          <!--<div class="grid grid--uniform">
-            <div class="grid__item {{ grid_item_width }}">-->
-              {% unless collection.products == blank %}
-              {% include 'collection-grid-item', collection_image_size: image_size %}
-              {% endunless %}
-            <!--</div>
-          </div>-->
+          {% unless collection.products == blank %}
+          <div style="margin-bottom:2em;">
+            {% include 'collection-grid-item', collection_image_size: image_size %}
+          </div>
+          {% endunless %}
         {% endfor %}
       {% else %}
         {% for collection in collections reversed %}
-          <!--<div class="grid grid--uniform">
-            <div class="grid__item {{ grid_item_width }}">-->
-              {% unless collection.products == blank %}
-              {% include 'collection-grid-item', collection_image_size: image_size %}
-              {% endunless %}
-            <!--</div>
-          </div>-->
+          {% unless collection.products == blank %}
+          <div style="margin-bottom:2em;">
+            {% include 'collection-grid-item', collection_image_size: image_size %}
+          </div>
+          {% endunless %}
         {% endfor %}
       {% endif %}
     {% else %}
       {% for block in section.blocks %}
-        <!--<div class="grid grid--uniform">
-          <div class="grid__item {{ grid_item_width }}">-->
-            {%- assign collection = collections[block.settings.collection] -%}
-            {% unless collection.products == blank %}
-              {% include 'collection-grid-item', collection_image_size: image_size %}
-            {% endunless %}
-          <!--</div>
-        </div>-->
+        {%- assign collection = collections[block.settings.collection] -%}
+        {% unless collection.products == blank %}
+          <div style="margin-bottom: 4em;">
+            {% include 'collection-grid-item', collection_image_size: image_size %}
+          </div>
+        {% endunless %}
       {% endfor %}
     {% endif %}
   </div>
