@@ -104,6 +104,9 @@
       <div class="product-single__meta">
 
         <h1 itemprop="name" class="product-single__title">{{ product.title }}</h1>
+        {% if product.metafields.flavor_notes.flavor_notes != blank %}
+          <div class="flavor-notes"><em>{{- product.metafields.flavor_notes.flavor_notes -}}</em></div>
+        {% endif %}
 
         {% if section.settings.show_vendor %}
           <p itemprop="brand" class="product-single__vendor">{{ product.vendor }}</p>

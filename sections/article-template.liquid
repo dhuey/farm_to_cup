@@ -1,23 +1,35 @@
-<div class="section-header text-center">
-  <h1 class="article__title">{{ article.title }}</h1>
-  {% if section.settings.blog_show_author %}
-    <span class="article__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
+<div class="page-width article-width">
+  {% if article.image != blank %}
+    {%- assign img_url = article.image | img_url: 'master' | replace: '_1x1.', '_{width}x.' -%}
+  <img  src="{{ article.image | img_url: 'master' }}"
+        style="margin-bottom: 1em;"
+        data-src="{{ img_url }}"
+        data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+        data-aspectratio="{{ article.image.aspect_ratio }}"
+        data-sizes="auto"
+        alt="{{ article.image.alt | escape }}"/>
   {% endif %}
+  <div class="section-header">
+    <h1 class="article__title">{{ article.title }}</h1>
+    {% if section.settings.blog_show_author %}
+      <span class="article__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
+    {% endif %}
 
-  {% if section.settings.blog_show_date %}
-    <span class="article__date">
-      {{ article.published_at | time_tag: format: 'month_day_year' }}
-    </span>
-  {% endif %}
-</div>
+    {% if section.settings.blog_show_date %}
+      <span class="article__date">
+        {{ article.published_at | time_tag: format: 'month_day_year' }}
+      </span>
+    {% endif %}
+  </div>
 
-<div class="rte" itemprop="articleBody">
+<div class="rte article-body" itemprop="articleBody">
   {{ article.content }}
 </div>
 
 {% if section.settings.show_share_buttons %}
   {% include 'social-sharing', share_title: article.title, share_permalink: article.url, share_image: article.image %}
 {% endif %}
+</div>
 
 {% schema %}
   {

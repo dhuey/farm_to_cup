@@ -32,7 +32,9 @@
 {% else %}
 
   {% if price_varies %}
-    <span class="product-price__price">{{ money_price }}</span>
+    {%- assign min_price = product.price_min | money -%}
+    {%- assign max_price = product.price_max | money -%}
+    <span class="product-price__price">{{ min_price }} &ndash; {{ max_price }}</span>
   {% else %}
     <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
     <span class="product-price__price">{{ money_price }}</span>

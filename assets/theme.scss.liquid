@@ -3889,6 +3889,7 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 
 .article__author {
   margin-right: 10px;
+  font-size: 16px;
 }
 
 .article__author,
@@ -3928,7 +3929,6 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 @include media-query($small) {
   .article__grid-meta--has-image {
     float: left;
-    width: percentage(6 / 10);
     padding-left: $gutter-site-mobile;
   }
 }
@@ -5833,4 +5833,21 @@ $toolbar-height-small: 46px;
 
 .collection-block {
   margin-bottom: 4em;
+}
+
+.flavor-notes {
+  color: $color-body-text;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.article-width {
+  font-size: 18px;
+  max-width: 44em;
+}
+
+.article-body {
+  line-height: 1.8em;
 }

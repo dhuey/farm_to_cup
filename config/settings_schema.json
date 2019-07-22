@@ -1,11 +1,11 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Debut",
-    "theme_author": "Shopify",
-    "theme_version": "1.10.0",
-    "theme_documentation_url": "https:\/\/help.shopify.com\/manual\/using-themes\/themes-by-shopify\/debut",
-    "theme_support_url": "https:\/\/support.shopify.com\/"
+    "theme_name": "Farm to Cup",
+    "theme_author": "Dalton Huey",
+    "theme_version": "1.0",
+    "theme_documentation_url": "https:\/\/github.com\/dhuey\/farm_to_cup",
+    "theme_support_email": "daltonjhuey@gmail.com"
   },
   {
     "name": "Colors",
