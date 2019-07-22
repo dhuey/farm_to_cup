@@ -85,7 +85,7 @@
       "by_author": "by {{ author }}",
       "posted_in": "Posted in",
       "read_more": "Read more",
-      "back_to_blog": "Back to {{ title }}"
+      "back_to_blog": "Back to Blog"
     },
     "comments": {
       "title": "Leave a comment",
