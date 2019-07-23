@@ -1,0 +1,39 @@
+<div class="grid custom-section custom-section-column">
+  <div class="grid__item medium-up--one-half">
+    <img src="{{ section.settings.mission_image | img_url: 'master' }}">
+  </div>
+  <div class="grid__item medium-up--one-half">
+    <h1>Our Mission</h1>
+    <p>{{ section.settings.mission_text }}</p>
+    <a href="about-sundays" class="btn">
+      {{ section.settings.button_text }}
+    </a>
+  </div>
+</div>
+
+{% schema %}
+
+  {
+    "name": "Sundays Mission",
+    "class": "sundays-section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "mission_image",
+        "label": "Image:"
+      },
+      {
+        "type": "richtext",
+        "id": "mission_text",
+        "label": "Text:"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text:",
+        "default": "READ MORE"
+      }
+    ]
+  }
+
+{% endschema %}
