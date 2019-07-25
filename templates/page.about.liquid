@@ -1,0 +1,10 @@
+<div class="page-width">
+  {% if handle == "about-sundays" %}
+    {% section 'sundays-mission' %}
+    {% section 'sundays-story' %}
+  {% else if handle == "about" %}
+    {% section 'story' %}
+  {% endif %}
+
+  {% section 'gunnels-bios' %}
+</div>
