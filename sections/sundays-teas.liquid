@@ -1,1 +1,86 @@
-<h2 class="text-center">Sunday&#39;s Teas</h2>
+<h1 class="text-center">Sunday&#39;s Teas</h1>
+<div class="grid custom-section">
+  <div class="grid__item medium-up--one-third text-center" style="margin-bottom: 1em;">
+    <div>
+      <img src="{{ section.settings.sunday_tea_one | img_url: 'master' }}">
+    </div>
+    <h4 style="margin-bottom: .1em;">{{ section.settings.tea_one_title }}</h4>
+    <p><em>{{ section.settings.tea_one_flavor_notes }}</em></p>
+  </div>
+  <div class="grid__item medium-up--one-third text-center" style="margin-bottom: 1em;">
+    <div>
+      <img src="{{ section.settings.sunday_tea_two | img_url: 'master' }}">
+    </div>
+    <h4 style="margin-bottom: .1em;">{{ section.settings.tea_two_title }}</h4>
+    <p><em>{{ section.settings.tea_two_flavor_notes }}</em></p>
+  </div>
+  <div class="grid__item medium-up--one-third text-center" style="margin-bottom: 1em;">
+    <div>
+      <img src="{{ section.settings.sunday_tea_three | img_url: 'master' }}">
+    </div>
+    <h4 style="margin-bottom: .1em;">{{ section.settings.tea_three_title }}</h4>
+    <p><em>{{ section.settings.tea_three_flavor_notes }}</em></p>
+  </div>
+</div>
+
+{% schema %}
+
+  {
+    "name": "Sundays Teas",
+    "class": "sundays-section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "sunday_tea_one",
+        "label": "Tea One Image:"
+      },
+      {
+        "type": "text",
+        "id": "tea_one_title",
+        "label": "Tea One Title:",
+        "default": "Tea One"
+      },
+      {
+        "type": "text",
+        "id": "tea_one_flavor_notes",
+        "label": "Tea One Flavor Notes:",
+        "default": "pretty good, not too bad"
+      },
+      {
+        "type": "image_picker",
+        "id": "sunday_tea_two",
+        "label": "Tea Two Image:"
+      },
+      {
+        "type": "text",
+        "id": "tea_two_title",
+        "label": "Tea Two Title:",
+        "default": "Tea Two"
+      },
+      {
+        "type": "text",
+        "id": "tea_two_flavor_notes",
+        "label": "Tea Two Flavor Notes:",
+        "default": "pretty good, not too bad"
+      },
+      {
+        "type": "image_picker",
+        "id": "sunday_tea_three",
+        "label": "Tea Three Image:"
+      },
+      {
+        "type": "text",
+        "id": "tea_three_title",
+        "label": "Tea Three Title:",
+        "default": "Tea Three"
+      },
+      {
+        "type": "text",
+        "id": "tea_three_flavor_notes",
+        "label": "Tea Three Flavor Notes:",
+        "default": "pretty good, not too bad"
+      }
+    ]
+  }
+
+{% endschema %}

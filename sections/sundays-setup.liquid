@@ -1,1 +1,37 @@
-<h2 class="text-center">The Setup</h2>
+<div class="grid custom-section custom-section-column">
+  <div class="grid__item medium-up--one-half">
+    <h1>The Setup</h1>
+    <p>{{ section.settings.setup_text }}</p>
+  </div>
+  <div class="grid__item medium-up--one-half">
+    <img src="{{ section.settings.setup_image | img_url: 'master' }}">
+  </div>
+</div>
+
+<h1>{{section.settings.sunday_product.title}}</h1>
+
+{% schema %}
+
+  {
+    "name": "Sundays Setup",
+    "class": "sundays-section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "setup_image",
+        "label": "Image:"
+      },
+      {
+        "type": "richtext",
+        "id": "setup_text",
+        "label": "Text:"
+      },
+      {
+        "type": "product",
+        "id": "sunday_product",
+        "label": "Product:"
+      }
+    ]
+  }
+
+{% endschema %}
