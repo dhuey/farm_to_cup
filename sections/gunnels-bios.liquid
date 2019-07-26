@@ -1,1 +1,50 @@
-<h1>Gunnels Bios</h1>
+<h2 class="text-center">Meet the Brothers</h2>
+<div class="grid custom-section medium-up--two-thirds text-center" style="margin:auto;">
+  <div class="grid__item medium-up--one-half text-center bio" style="margin-bottom: 1em;">
+    <div>
+      <img src="{{ section.settings.cameron_image | img_url: 'master' }}">
+    </div>
+    <h4 style="margin-bottom: .1em;">Cameron Gunnels</h4>
+    <p style="text-align: left;">{{ section.settings.cameron_bio }}</p>
+  </div>
+  <div class="grid__item medium-up--one-half text-center bio" style="margin-bottom: 1em;">
+    <div>
+      <img src="{{ section.settings.colby_image | img_url: 'master' }}">
+    </div>
+    <h4 style="margin-bottom: .1em;">Colby Gunnels</h4>
+    <p style="text-align: left;">{{ section.settings.colby_bio }}</p>
+  </div>
+</div>
+
+{% schema %}
+
+  {
+    "name": "Gunnels Bios",
+    "class": "sundays-section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "cameron_image",
+        "label": "Cameron Image:"
+      },
+      {
+        "type": "text",
+        "id": "cameron_bio",
+        "label": "Cameron Bio:",
+        "default": "pretty good, not too bad"
+      },
+      {
+        "type": "image_picker",
+        "id": "colby_image",
+        "label": "Colby Image:"
+      },
+      {
+        "type": "text",
+        "id": "colby_bio",
+        "label": "Colby Bio:",
+        "default": "pretty good, not too bad"
+      }
+    ]
+  }
+
+{% endschema %}

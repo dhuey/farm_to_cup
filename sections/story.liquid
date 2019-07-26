@@ -1,1 +1,30 @@
-<h1>Story</h1>
+<div class="grid custom-section custom-section-column">
+  <div class="grid__item medium-up--one-half">
+    <h2>Our Story</h2>
+    <p>{{ section.settings.story_text }}</p>
+  </div>
+  <div class="grid__item medium-up--one-half">
+    <img src="{{ section.settings.story_image | img_url: 'master' }}">
+  </div>
+</div>
+
+{% schema %}
+
+  {
+    "name": "Sundays Story",
+    "class": "sundays-section",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "story_image",
+        "label": "Image:"
+      },
+      {
+        "type": "richtext",
+        "id": "story_text",
+        "label": "Text:"
+      }
+    ]
+  }
+
+{% endschema %}
