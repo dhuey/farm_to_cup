@@ -8,6 +8,14 @@
   <meta name="theme-color" content="{{ settings.color_button }}">
   <link rel="canonical" href="{{ canonical_url }}">
 
+  {% if handle contains 'sundays' %}
+    <meta name="robots" content="noindex">
+  {% endif %}
+
+  {% if handle contains 'about-sundays' %}
+    <meta name="robots" content="noindex">
+  {% endif %}
+
   {% if settings.favicon != blank %}
     <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
   {% endif %}

@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: /sundays
-Disallow: /pages/sundays
-Disallow: /about-sundays
